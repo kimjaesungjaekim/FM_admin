@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fillme 관리자페이지</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./css/sub.css" /> -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <script src="./script/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="Wrapper">
+        <!-- Header-START -->
+        <header id="header">
+            <div class="head_logo">
+                <a href="javascript:void(0);" title="home">
+                    <img src="./image/logo_f.svg" alt="logo" />
+                </a>
+            </div>
+
+            <!-- topManu -->
+            <div class="menuArea">                
+                <ul class="menu">
+                    <li>
+                        <a href="javascript:void(0);" class="cate">
+                            <span><img src="./image/menu_icon01.png" alt="" /></span>
+                            <span>회원관리</span>
+                        </a>
+                        
+                        <ul class="subMenu">
+                            <span class="close-submenu"></span>                            
+                            <li class="sub">
+                                <p  class="title">회원관리</p>
+                                <ul class="subMenu-3">
+                                    <li class="selected">
+                                        <a href="javascript:void(0);" target="_self" class="">회원 정보
+                                            관리(일반)</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self">회원 정보 관리(약사)</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self">회원 정보
+                                            관리(개인사업자))</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self">회원 정보 관리(기업담당자)</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li  class="sub">
+                                <p  class="title">구독 승인(기업 담당자)</p>
+                                <ul class="subMenu-3">
+                                    <li class="selected">
+                                        <a href="javascript:void(0);" target="_self" class="">프로모션 결제 승인</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="cate">
+                            <span><img src="./image/menu_icon02.png" alt="" /></span>
+                            <span>구독·주문관리</span>
+                        </a>
+                        <ul class="subMenu">
+                            <span class="close-submenu"></span>
+                            <li class="sub">
+                                <p  class="title">구독관리</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">구독서비스
+                                            신청 현황</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">구독상태
+                                            현황</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="title">주문관리</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">주문상태
+                                            현황</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="cate">
+                            <span><img src="./image/menu_icon03.png" alt="" /></span>
+                            <span>상품관리</span>
+                        </a>
+                        <ul class="subMenu">
+                            <span class="close-submenu"></span>
+                            <li class="sub">
+                                <p  class="title">상품관리</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self"
+                                            class="">건강기능식품 관리</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">성분
+                                            관리</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">유의사항
+                                            관리</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">신규
+                                            건강기능식품 승인</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="cate">
+                            <span><img src="./image/menu_icon04.png" alt="" /></span>
+                            <span>게시판</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="cate">
+                            <span><img src="./image/menu_icon05.png" alt="" /></span>
+                            <span>통계</span>
+                        </a>
+                        <ul class="subMenu">
+                            <span class="close-submenu"></span>
+                            <li class="sub">
+                                <p  class="title">통계</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self"
+                                            class="">회원통계</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self"
+                                            class="">신청/분석통계</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">구독/결재
+                                            통계</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self"
+                                            class="">기타통계</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="cate">
+                            <span><img src="./image/menu_icon06.png" alt="" /></span>
+                            <span>결제관리</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="cate">
+                            <span><img src="./image/menu_icon07.png" alt="" /></span>
+                            <span>고객지원</span>
+                        </a>
+                        <ul class="subMenu">
+                            <span class="close-submenu"></span>
+                            <li class="sub">
+                                <p  class="title">고객지원</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">1:1
+                                            상담문의 (0)</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">회원 탈퇴
+                                            내역</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub">
+                                <p class="title">구독관리</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">FAQ
+                                            분류</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">FAQ
+                                            관리</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub">
+                                <p  class="title">공지사항 관리</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">공지사항
+                                            관리</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="cate">
+                            <span><img src="./image/menu_icon08.png" alt="" /></span>
+                            <span>디자인관리</span>
+                        </a>
+                        <ul class="subMenu">
+                            <span class="close-submenu"></span>
+                            <li class="sub">
+                                <p class="title">배너관리</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self" class="">통합
+                                            배너관리(모바일)</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub">
+                                <p  class="title">기타관리</p>
+                                <ul class="subMenu-3">
+                                    <li>
+                                        <a href="javascript:void(0);" target="_self"
+                                            class="">팝업관리</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="cate">
+                            <span><img src="./image/menu_icon09.png" alt="" /></span>
+                            <span>환경설정</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="logout">
+                <button><img src="./image/logout.svg" alt=""></button>
+            </div>
+        </header>
+
+        <!-- mainContainer -->
+        <section id="mainContainer">
+            <div class="Wrap">
+                <ul class="miniNav">
+                    <li><img src="./image/home_icon.svg" alt=""></li>
+                    <li>•</li>
+                    <li>홈</li>
+                </ul>
+                <!-- Dashboard -->
+                <div class="dashboard_wrap" id="board_wrap">
+                    <div class="board_flex">
+                        <div class="boardbox color_r">
+                            <div class="boardimg flex">
+                                <img src="./image/board_icon01.png" alt="">
+                                <span>총 회원 수</span>
+                            </div>
+                            <h2>123,456</h2>
+                        </div>
+                        <div class="boardbox b_color_o">
+                            <div class="boardimg flex">
+                                <img src="./image/board_icon02.png" alt="">
+                                <span>오늘 기업 회원 수</span>
+                            </div>
+                            <h2>435</h2>
+                        </div>
+    
+                        <div class="boardbox b_color_o">
+                            <div class="boardimg flex">
+                                <img src="./image/board_icon03.png" alt="">
+                                <span>총 약사 회원</span>
+                            </div>
+                            <h2>35</h2>
+                        </div>
+    
+                        <div class="boardbox b_color_o">
+                            <div class="boardimg flex">
+                                <img src="./image/board_icon04.png" alt="">
+                                <span>총 기업 수</span>
+                            </div>
+                            <h2>438</h2>
+                        </div>
+    
+                        <div class="boardbox b_color_g">
+                            <div class="boardimg flex">
+                                <img src="./image/board_icon05.png" alt="">
+                                <span>총 매칭 수</span>
+                            </div>
+                            <h2>438</h2>
+                        </div>
+    
+                        <div class="boardbox b_color_s">
+                            <div class="boardimg flex">
+                                <img src="./image/board_icon06.png" alt="">
+                                <span>오늘 매칭 수</span>
+                            </div>
+                            <h2>438</h2>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="titleArea mb20">Fillme 통계</h1>
+                <div class="listWrap boxStyle">
+                    <div class="chartWrap">
+                        <ul class="chartTitle">
+                            <li><button class="btn on">일반</button></li>
+                            <li><button class="btn">구독</button></li>
+                            <li><button class="btn">-</button></li>
+                        </ul>
+                        <div class="chartFlex">
+                            <div class="chartBox">
+                                <div class="searchBox">
+                                    <form name="searchForm" id="searchForm" method="post" action="#">
+                                        <fieldset>
+                                            <div class="selectBox">
+                                                <select name="search" class="select">
+                                                    <option value="1년">1년</option>
+                                                    <option value="1달">1달</option>
+                                                    <option value="1주일">1주일</option>
+                                                </select>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <canvas id="myChart"></canvas>
+                            </div>
+                            <div class="flex01">
+                                <div class="box">
+                                    <p class="conText">손톱 AI분석 횟수</p>
+                                    <p class="conTitle">8,495</p>
+                                </div>
+                                <div class="box">
+                                    <p class="conText">방문자</p>
+                                    <p class="conTitle">3,495</p>
+                                </div>
+                                <div class="box">
+                                    <p class="conText">손톱 AI분석</p>
+                                    <p class="conTitle">28,495</p>
+                                </div>
+                                <div class="box">
+                                    <p class="conText">손톱 AI분석 회원</p>
+                                    <p class="conTitle">18,495</p>
+                                </div>
+                                <div class="box">
+                                    <p class="conText">맞춤 솔루션 신청</p>
+                                    <p class="conTitle">123,495</p>
+                                </div>
+                                <div class="box">
+                                    <p class="conText">약사 솔루션 제안</p>
+                                    <p class="conTitle">2,495</p>
+                                </div>
+                                <div class="box">
+                                    <p class="conText">매칭 완료</p>
+                                    <p class="conTitle">1,495</p>
+                                </div>
+                                <div class="box">
+                                    <p class="conText">매칭 금액</p>
+                                    <p class="conTitle">1,495,000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listWrap boxStyle">
+                    <div class="list_more">
+                        <h1 class="titleArea">맞춤 솔루션 신청 현황</h1>
+                        <div class="view">더보기 <i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+
+                    <div class="solutionWrap">
+                        <div class="box">
+                            <div class="day">24.04.01 14:20</div>
+                            <div class="name">
+                                홍길동 <span>30세 남</span>
+                            </div>
+                            <div class="iconBox">
+                                <div class="img">
+                                    <img src="./image/fillme_icon01.png" alt="">
+                                    <span>영양불균형</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon02.png" alt="">
+                                    <span>노화</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon03.png" alt="">
+                                    <span>스트레스</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon04.png" alt="">
+                                    <span>수분부족</span>
+                                </div>
+                            </div>
+                            <button class="btn btn02">제안하기</button>
+                        </div>
+                        <div class="box">
+                            <div class="day">24.04.01 14:20</div>
+                            <div class="name">
+                                홍길동 <span>30세 남</span>
+                            </div>
+                            <div class="iconBox">
+                                <div class="img">
+                                    <img src="./image/fillme_icon01.png" alt="">
+                                    <span>영양불균형</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon02.png" alt="">
+                                    <span>노화</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon03.png" alt="">
+                                    <span>스트레스</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon04.png" alt="">
+                                    <span>수분부족</span>
+                                </div>
+                            </div>
+                            <button class="btn btn02">제안하기</button>
+                        </div>
+                        
+                        <div class="box">
+                            <div class="day">24.04.01 14:20</div>
+                            <div class="name">
+                                홍길동 <span>30세 남</span>
+                            </div>
+                            <div class="iconBox">
+                                <div class="img">
+                                    <img src="./image/fillme_icon01.png" alt="">
+                                    <span>영양불균형</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon02.png" alt="">
+                                    <span>노화</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon03.png" alt="">
+                                    <span>스트레스</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon04.png" alt="">
+                                    <span>수분부족</span>
+                                </div>
+                            </div>
+                            <button class="btn btn02">제안하기</button>
+                        </div>
+                        
+                        <div class="box">
+                            <div class="day">24.04.01 14:20</div>
+                            <div class="name">
+                                홍길동 <span>30세 남</span>
+                            </div>
+                            <div class="iconBox">
+                                <div class="img">
+                                    <img src="./image/fillme_icon01.png" alt="">
+                                    <span>영양불균형</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon02.png" alt="">
+                                    <span>노화</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon03.png" alt="">
+                                    <span>스트레스</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon04.png" alt="">
+                                    <span>수분부족</span>
+                                </div>
+                            </div>
+                            <button class="btn btn02">제안하기</button>
+                        </div>
+                        
+                        <div class="box">
+                            <div class="day">24.04.01 14:20</div>
+                            <div class="name">
+                                홍길동 <span>30세 남</span>
+                            </div>
+                            <div class="iconBox">
+                                <div class="img">
+                                    <img src="./image/fillme_icon01.png" alt="">
+                                    <span>영양불균형</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon02.png" alt="">
+                                    <span>노화</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon03.png" alt="">
+                                    <span>스트레스</span>
+                                </div>
+                                <div class="img">
+                                    <img src="./image/fillme_icon04.png" alt="">
+                                    <span>수분부족</span>
+                                </div>
+                            </div>
+                            <button class="btn btn02">제안하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- section02 -->
+            <div class="Wrap02">
+                <div class="headBox">
+                    <ul class="profile">
+                        <li class="bell"><img src="./image/profile_bell.svg" alt=""></li>
+                        <li class="user">
+                            <img src="./image/profile_icon01.svg" alt="관리자">
+                            <div>관리자 <span>님</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- userList -->
+                <div class="listWrap boxStyle">
+                    <div class="list_more">
+                        <h1 class="titleArea">최근매칭</h1>
+                        <div class="view">더보기 <i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+    
+                    <!-- list -->
+                    <div class="tableArea">
+                        <table class="tg">
+                            <thead>
+                                <tr>
+                                    <th class="">매칭일</th>
+                                    <th class="">이름<br>(닉네임)</th>
+                                    <th class="">나이</th>
+                                    <th class="">성별</th>
+                                    <th class="">키</th>
+                                    <th class="">몸무게</th>
+                                    <th class="">BMI</th>
+                                    <th class="">구독<br>기간</th>
+                                    <th class="">매칭<br>약사</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="">
+                                        24.03.10
+                                    </td>
+                                    <td class="">홍길동</td>
+                                    <td class="">43</td>
+                                    <td class="">남</td>
+                                    <td class="">185cm</td>
+                                    <td class="">50kg</td>
+                                    <td class="">정상</td>
+                                    <td class="">1개월</td>
+                                    <td class="">홍길동<br>약사</td>
+                                </tr>
+                                <tr class="bg_or">
+                                    <td class="">
+                                        24.03.10
+                                    </td>
+                                    <td class="">홍길동</td>
+                                    <td class="">43</td>
+                                    <td class="">남</td>
+                                    <td class="">185cm</td>
+                                    <td class="">50kg</td>
+                                    <td class="">정상</td>
+                                    <td class="">1개월</td>
+                                    <td class="">홍길동<br>약사</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+    
+                </div>
+                
+                <!-- Star -->
+                <div class="listWrap boxStyle">
+                    <div class="list_more">
+                        <h1 class="titleArea">스타약사</h1>
+                        <div class="view">더보기 <i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+
+                    <!-- filter -->
+                    <div class="list_filter filter__menu">
+                        <ul class="filterName filter__name">
+                            <li class="on">이름</li>
+                            <li>제안수</li>
+                            <li>매칭수</li>
+                            <li>별점</li>
+                            <li>매칭금액</li>
+                        </ul>
+                    </div>
+
+                    <dl class="starBox flex01">
+                        <dt>
+                            <img src="./image/home_star01.png" alt="">
+                        </dt>
+                        <dd>
+                            <div class="flex01">
+                                <div class="conTitle">김필미 약사</div>
+                                <div class="num">1000회</div>
+                                <div class="num">200회</div>
+                                <div class="star">
+                                    <img src="./image/star_mini.svg" alt="">
+                                    <strong>4.9</strong>
+                                    <span>(613)</span>
+                                </div>
+                            </div>                                
+                            <span>128건</span>
+                        </dd>
+                        
+                        <dt class="conTitle">11,109,000 <small>원</small></dt>
+                    </dl>
+                    <dl class="starBox flex01">
+                        <dt>
+                            <img src="./image/home_star02.png" alt="">
+                        </dt>
+                        <dd>
+                            <div class="flex01">
+                                <div class="conTitle">김진우 약사</div>
+                                <div class="num">900회</div>
+                                <div class="num">180회</div>
+                                <div class="star">
+                                    <img src="./image/star_mini.svg" alt="">
+                                    <strong>4.8</strong>
+                                    <span>(400)</span>
+                                </div>
+                            </div>                                
+                            <span>100건</span>
+                        </dd>
+                        
+                        <dt class="conTitle">10,109,000 <small>원</small></dt>
+                    </dl>
+                    <dl class="starBox flex01">
+                        <dt>
+                            <img src="./image/home_star03.png" alt="">
+                        </dt>
+                        <dd>
+                            <div class="flex01">
+                                <div class="conTitle">이지희 약사</div>
+                                <div class="num">800회</div>
+                                <div class="num">150회</div>
+                                <div class="star">
+                                    <img src="./image/star_mini.svg" alt="">
+                                    <strong>4.7</strong>
+                                    <span>(350)</span>
+                                </div>
+                            </div>                                
+                            <span>88건</span>
+                        </dd>
+                        
+                        <dt class="conTitle">9,109,000 <small>원</small></dt>
+                    </dl>
+                </div>
+                <!-- Notice -->
+                <div class="listWrap boxStyle">
+                    <div class="list_more">
+                        <h1 class="titleArea">공지사항</h1>
+                        <div class="view">더보기 <i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+                    <div class="listBox topLine">
+                        <div class="flex01">
+                            <p class="conTitle">플랫폼 DB 업데이트 안내</p>
+                            <span class="conText">24.03.08</span>
+                        </div>
+                        <div class="flex01">
+                            <p class="conTitle">Fillme 공지사항(1)</p>
+                            <span class="conText">24.03.08</span>
+                        </div>
+                        <div class="flex01">
+                            <p class="conTitle">Fillme 공지사항</p>
+                            <span class="conText">24.03.08</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q&A -->
+                <div class="listWrap boxStyle">
+                    <div class="list_more">
+                        <h1 class="titleArea">고객Q&A</h1>
+                        <div class="view">더보기 <i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+                    <div class="listBox topLine">
+                        <dl class="qnabox">
+                            <dt class="qbox flex">
+                                <div class="s-label s-labelGray">답변대기</div>
+                                <div class="conText">섭취방법</div>
+                                <h4 class="conTitle">제목을 입력하세요</h4>
+                                <span class="conText">24.03.10</span>
+                            </dt>
+                            <dd class="abox">
+                                섭취방법을 알려줍니다. <br>섭취방법을 알려줍니다.
+                            </dd>
+                        </dl>
+                        <dl class="qnabox">
+                            <dt class="qbox flex">
+                                <div class="s-label s-labelG">답변완료</div>
+                                <div class="conText">섭취방법</div>
+                                <h4 class="conTitle">제목을 입력하세요</h4>
+                                <span class="conText">24.03.10</span>
+                            </dt>
+                            <dd class="abox">
+                                섭취방법을 알려줍니다. <br>섭취방법을 알려줍니다.
+                            </dd>
+                        </dl>
+                    </div>    
+                </div>
+
+                <!-- Event -->
+                <div class="listWrap boxStyle">
+                    <div class="list_more">
+                        <h1 class="titleArea">EVENT</h1>
+                        <div class="view">더보기 <i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+                    <div class="eventBox">
+                        <img src="./image/home_icon02.svg" alt="">
+                        <span>진행중인 광고(이벤트)가 없습니다.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div class="footflex">
+            <div class="left">
+                <img src="./image/footer_logo.svg" alt="fillme_footerLogo">
+            </div>
+            <div class="right">
+                <span>개인정보처리방침</span>
+                <span>이용약관</span>
+            </div>
+        </div>
+        <ul class="foot_t">
+            <li>
+                <span>대표이사 : 박영준</span>
+                <span>사업자등록번호 : 000-00-00000</span>
+            </li>
+            <li>주소 : 경기도 성남시 분당구 판교역로</li>
+            <div>Copyright 2024. Fillme.</div>
+        </ul>
+    </footer>
+</body>
+<script src="./script/chart.js"></script>
+<script src="./script/common.js"></script>
+
+
+</html>

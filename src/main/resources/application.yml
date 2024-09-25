@@ -1,12 +1,18 @@
+server:
+ port: 8071
+
 spring:
   application:
-    name: fillme-backend
+    name: FM_admin
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://141.164.45.147:3306/fillme_dev
+    url: jdbc:mysql://localhost:3306/fillme_a
     username: root
-    password: noname123
+    password: inno
+#    url: jdbc:mysql://141.164.45.147:3306/fillme_dev
+#    username: root
+#    password: noname123
     hikari:
       auto-commit: true
       minimum-idle: 10
@@ -36,7 +42,7 @@ spring:
 
 springdoc:
   api-docs:
-    url-uat: http://localhost:8080
+    url-uat: http://localhost:8071
     url-dev: http://141.164.45.147:8080
 
 cors:
@@ -52,6 +58,9 @@ cors:
       /webjars/**,
       /api/auth/**,
       /api/policy/**,
+      /web/auth/**,
+      
+      
 
 logging:
   level:

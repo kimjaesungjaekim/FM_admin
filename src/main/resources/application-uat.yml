@@ -1,3 +1,6 @@
+server:
+ port: 8071
+
 spring:
   application:
     name: fillme-backend
@@ -36,8 +39,8 @@ spring:
 
 springdoc:
   api-docs:
-    url-uat: http://localhost:8080
-    url-dev: http://141.164.45.147:8080
+    url-uat: http://localhost:8071
+    url-dev: http://141.164.45.147:8071
 
 cors:
   allowed:
