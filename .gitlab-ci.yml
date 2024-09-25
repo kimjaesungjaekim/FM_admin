@@ -1,0 +1,15 @@
+image:
+  name: gradle:8.1.0-jdk17
+
+stages:
+  - deploy
+
+deploy-job:
+  stage: deploy
+  script:
+    - echo "$PRIVATE_KEY" > keypair.pem && chmod 600 keypair.pem
+    - ssh -i keypair.pem -o StrictHostKeyChecking=no $SSH_HOST "./deployment.sh"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop" && $CI_COMMIT_TITLE != "push"'
+  tags:
+    - fillme
