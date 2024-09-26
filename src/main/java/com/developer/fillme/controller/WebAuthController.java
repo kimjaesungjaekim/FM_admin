@@ -10,12 +10,17 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/web/auth")
+@RequestMapping("/web")
 public class WebAuthController {
 	
-	@GetMapping("/home")
+	@GetMapping("/login")
     public String index() {
 		
-        return "home"; 
+        return "login"; 
     }
+	@GetMapping("/auth")
+	public String home() {
+		
+		return "web/home"; 
+	}
 }

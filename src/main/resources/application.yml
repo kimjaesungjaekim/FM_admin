@@ -59,6 +59,10 @@ cors:
       /api/auth/**,
       /api/policy/**,
       /web/auth/**,
+      /css/**,
+      /image/**,
+      /script/**,
+      /web/**
       
       
 

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fillme Login</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link th:href="@{https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css}" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css}">
+    <script th:src="@{/script/jquery-3.6.0.js}"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/chart.js}"></script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="Wrapper" class="Login" style="display: flex; padding: 20px;">
+        <div class="left">
+            <h1>나만의 건강 채우미 <b>FILLME</b></h1>
+            <p>개인의 건강상태를 정확하게 체크하고 <br>
+                맞춤형 솔루션 제안까지 필미는 한번에 가능해요</p>
+            <img th:src="@{/image/login_img01.png}" alt="">
+        </div>
+        <div class="right" style="flex: 1;">
+            <button class="btn btn01 flex mb30">
+                <img th:src="@{../../image/login_icon.png}" alt="">
+                <span class="mx10">로그인</span>
+            </button>
+
+            <div class="logWrap" style="flex: 1; padding: 20px;">
+                <div class="img">
+                    <img th:src="@{../../image/logo.svg}" alt="logo" />
+                </div>
+                <!-- logInput -->
+                <div class="logInput">
+                    <div class="input_box">
+                        <p>이메일</p>
+                        <input onfocus="$(this).addClass('focused')" class="input-with-message" type="email"
+                            placeholder="ID">
+                        <span class="input-status-message input-status-message--empty">
+                            이메일 형식이 올바르지 않습니다.
+                        </span>
+                    </div>
+                    <div class="input_box">
+                        <p>비밀번호</p>
+                        <div class="password-container">
+                            <input id="password" onfocus="$(this).addClass('focused')" class="input-with-message"
+                                type="password" placeholder="PW">
+                                <span class="input-status-message input-status-message--empty">
+                                    8~32자리 영문 대소문자, 숫자, 특수문자를 조합하여 <br>입력해 주세요.
+                                </span>
+                            <div class="eyes"><i class="fa-regular fa-eye"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="Check">
+                        <input type="checkbox" checked>
+                        <span>수신거부</span>
+                    </div>
+                </div>
+
+                <div class="log_box">
+                    <button type="button" class="btn btn01">시작하기</button>
+                    <div class="flex mb30">
+                        <div class="conText">
+                            <span>아이디</span>
+                            <span>|</span>
+                            <span>비밀번호찾기</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simpleLog">
+                    <p>간편하게 시작히기</p>
+                    <div class="logIcon flex">
+                        <a href="javascript:void(0);"><img th:src="@{../../image/log_naver.svg}" alt="naver"></a>
+                        <a href="javascript:void(0);"><img th:src="@{../../image/log_kakao.svg}" alt="kakaotalk"></a>
+                        <a href="javascript:void(0);"><img th:src="@{../../image/log_facebook.svg}" alt="facebook"></a>
+                        <a href="javascript:void(0);"><img th:src="@{../../image/log_apple.svg}" alt="apple"></a>
+                    </div>
+                </div>
+                <div class="singup">
+                    <p>아직 Fillme 가족이 아니신가요?</p>
+                    <a href="javascript:void(0);" class="now">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+        <div class="footflex">
+            <div class="left">
+                <img th:src="@{../../image/footer_logo.svg}" alt="fillme_footerLogo">
+            </div>
+            <div class="right">
+                <span>개인정보처리방침</span>
+                <span>이용약관</span>
+            </div>
+        </div>
+        <ul class="foot_t">
+            <li>
+                <span>대표이사 : 박영준</span>
+                <span>사업자등록번호 : 000-00-00000</span>
+            </li>
+            <li>주소 : 경기도 성남시 분당구 판교역로</li>
+            <div>Copyright 2024. Fillme.</div>
+        </ul>
+    </footer>
+</body>
+<script th:src="@{../../script/common.js}"></script>
+<script>
+    // Login_password
+    function PW_OnOff() {
+        $(function () {
+            // 눈 표시 클릭 시 패스워드 보이기
+            $('.eyes').on('click', function () {
+                $(this).toggleClass('active');
+
+                const passwordField = $(this).siblings('#password'); // 비밀번호 입력 필드 선택
+                if ($(this).hasClass('active')) {
+                    $(this).find('i').attr('class', "fa-regular fa-eye-slash"); // 아이콘 변경
+                    passwordField.attr('type', "text"); // 비밀번호 표시
+                } else {
+                    $(this).find('i').attr('class', "fa-regular fa-eye"); // 아이콘 변경
+                    passwordField.attr('type', 'password'); // 비밀번호 숨김
+                }
+            });
+        });
+    }
+    PW_OnOff();
+</script>
+
+</html>
